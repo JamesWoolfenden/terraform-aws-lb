@@ -6,14 +6,6 @@ variable "common_tags" {
 variable "listener" {
   default = {
     port = 443
-    default_action = {
-      type = "fixed-response"
-      fixed_response = [{
-        content_type = "text/plain"
-        message_body = "Fixed response content"
-        status_code  = "200"
-      }]
-    }
   }
 }
 
@@ -37,13 +29,19 @@ variable "protocol" {
 
 variable "ssl_policy" {
   type    = string
-  default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
 
 variable "bucket" {
-  default = "myloggingbucket"
 }
 
 variable "lb-name" {
   default = "test-lb"
+}
+
+variable "vpc_id" {
+  type=string
+}
+
+variable "subnet_ids" {
+  type=list
 }
