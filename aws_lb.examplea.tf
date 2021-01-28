@@ -5,5 +5,5 @@ resource "aws_lb" "examplea" {
     enabled = true
   }
   #security_groups    = [aws_security_group.lb_sg.id]
-  subnets            = var.subnet_ids
+  subnets = var.subnet_ids
 }

@@ -2,7 +2,7 @@ resource "aws_lb_target_group" "examplea" {
   name     = var.lb-name
   port     = var.target_port
   protocol = var.target_protocol
-  vpc_id=var.vpc_id
+  vpc_id   = var.vpc_id
 }
 
 variable "target_port" {

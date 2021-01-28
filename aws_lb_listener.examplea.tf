@@ -6,8 +6,8 @@ resource "aws_lb_listener" "examplea" {
   ssl_policy        = var.ssl_policy
   certificate_arn   = var.certificate_arn
 
-  
-    default_action {
+
+  default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.examplea.arn
   }

@@ -28,7 +28,7 @@ variable "protocol" {
 }
 
 variable "ssl_policy" {
-  type    = string
+  type = string
 }
 
 variable "bucket" {
@@ -39,9 +39,9 @@ variable "lb-name" {
 }
 
 variable "vpc_id" {
-  type=string
+  type = string
 }
 
 variable "subnet_ids" {
-  type=list
+  type = list(any)
 }
