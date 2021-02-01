@@ -45,3 +45,7 @@ variable "vpc_id" {
 variable "subnet_ids" {
   type = list(any)
 }
+
+variable "security_groups" {
+  type = list(any)
+}

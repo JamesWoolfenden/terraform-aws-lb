@@ -4,6 +4,7 @@ resource "aws_lb" "examplea" {
     bucket  = var.bucket
     enabled = true
   }
-  #security_groups    = [aws_security_group.lb_sg.id]
-  subnets = var.subnet_ids
+  security_groups = var.security_groups
+  subnets         = var.subnet_ids
+  tags            = var.common_tags
 }
