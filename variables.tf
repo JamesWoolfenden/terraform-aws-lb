@@ -28,7 +28,8 @@ variable "protocol" {
 }
 
 variable "ssl_policy" {
-  type = string
+  type    = string
+  default = "ELBSecurityPolicy-TLS-1-2-2017-01"
 }
 
 variable "bucket" {
