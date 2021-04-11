@@ -1,7 +1,10 @@
 resource "aws_s3_bucket" "logging" {
-  #checkov:skip=CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
-  #checkov:skip=CKV_AWS_52: "Ensure S3 bucket has MFA delete enabled"
-  #checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+  # checkov:skip=CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
+  # checkov:skip=CKV_AWS_52: "Ensure S3 bucket has MFA delete enabled"
+  # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
+  # checkov:skip=CKV_AWS_144: "Its a logging bucket"
+  # checkov:skip=CKV_AWS_145: "Its a logging bucket"
+
   bucket = "logging-lb-${data.aws_caller_identity.current.account_id}"
   server_side_encryption_configuration {
     rule {
