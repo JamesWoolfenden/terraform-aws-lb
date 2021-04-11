@@ -16,7 +16,7 @@ variable "load_balancer_type" {
   default     = "application"
   description = "Pick your Load balancer type"
   validation {
-    condition     = can(Regex("application|gateway|network", var.load_balancer_type))
+    condition     = can(regex("application|gateway|network", var.load_balancer_type))
     error_message = "The type of load balancer to create. Possible values are application, gateway, or network."
   }
 }
