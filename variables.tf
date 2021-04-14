@@ -60,4 +60,3 @@ variable "load_balancer_type" {
     error_message = "The type of load balancer to create. Possible values are application, gateway, or network."
   }
 }
-
