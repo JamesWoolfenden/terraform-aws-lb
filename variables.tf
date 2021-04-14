@@ -50,3 +50,14 @@ variable "subnet_ids" {
 variable "security_groups" {
   type = list(any)
 }
+
+variable "load_balancer_type" {
+  type        = string
+  default     = "application"
+  description = "Pick your Load balancer type"
+  validation {
+    condition     = can(regex("application|gateway|network", var.load_balancer_type))
+    error_message = "The type of load balancer to create. Possible values are application, gateway, or network."
+  }
+}
+

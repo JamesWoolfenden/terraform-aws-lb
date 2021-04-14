@@ -1,4 +1,6 @@
 resource "aws_lb" "examplea" {
+  # tfsec ios complaining about the lb being publically exposed, this is it intended purpose.
+  # tfsec:ignore:AWS005
   name = var.lb-name
   access_logs {
     bucket  = var.bucket
@@ -9,14 +11,4 @@ resource "aws_lb" "examplea" {
   security_groups            = var.security_groups
   subnets                    = var.subnet_ids
   tags                       = var.common_tags
-}
-
-variable "load_balancer_type" {
-  type        = string
-  default     = "application"
-  description = "Pick your Load balancer type"
-  validation {
-    condition     = can(regex("application|gateway|network", var.load_balancer_type))
-    error_message = "The type of load balancer to create. Possible values are application, gateway, or network."
-  }
 }
