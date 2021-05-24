@@ -1,5 +1,6 @@
 resource "aws_lb" "examplea" {
-  # tfsec ios complaining about the lb being publically exposed, this is it intended purpose.
+  # checkov:skip=CKV_AWS_150: ADD REASON
+  # tfsec ios complaining about the lb being publicly exposed, this is it intended purpose.
   # tfsec:ignore:AWS005
   name = var.lb-name
   access_logs {
