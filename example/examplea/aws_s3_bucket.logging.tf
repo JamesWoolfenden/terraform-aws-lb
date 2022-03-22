@@ -1,6 +1,10 @@
 resource "aws_s3_bucket" "logging" {
   # tfsec:ignore:AWS002
   # tfsec:ignore:AWS077
+  # checkov:skip=CKV_AWS_19:v4 legacy
+  # checkov:skip=CKV2_AWS_41: "Its a logging bucket"
+  # checkov:skip=CKV2_AWS_37: "Its a logging bucket"
+
   # checkov:skip=CKV_AWS_21: "Ensure all data stored in the S3 bucket have versioning enabled"
   # checkov:skip=CKV_AWS_52: "Ensure S3 bucket has MFA delete enabled"
   # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
@@ -8,15 +12,20 @@ resource "aws_s3_bucket" "logging" {
   # checkov:skip=CKV_AWS_145: "Its a logging bucket"
 
   bucket = "logging-lb-${data.aws_caller_identity.current.account_id}"
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
+  tags   = var.common_tags
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "logging" {
+  bucket = aws_s3_bucket.logging.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      kms_master_key_id = aws_kms_key.example.arn
+      sse_algorithm     = "aws:kms"
     }
   }
-  tags = var.common_tags
 }
+
 
 data "aws_caller_identity" "current" {}
 
