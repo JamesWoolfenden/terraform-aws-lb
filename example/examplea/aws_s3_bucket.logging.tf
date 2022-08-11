@@ -41,7 +41,7 @@ resource "aws_s3_bucket_policy" "examplea" {
             "Sid": "AWSConsoleStmt-1611836550781",
             "Effect": "Allow",
             "Principal": {
-                "AWS": "arn:aws:iam::652711504416:root"
+                "AWS": "arn:aws:iam::${var.ELB_RegionalAccount}:root"
             },
             "Action": "s3:PutObject",
             "Resource": "${aws_s3_bucket.logging.arn}/AWSLogs/${data.aws_caller_identity.current.account_id}/*"
@@ -80,4 +80,11 @@ resource "aws_s3_bucket_public_access_block" "logging" {
   block_public_acls       = true
   block_public_policy     = true
   ignore_public_acls      = true
+}
+
+
+variable "ELB_RegionalAccount" {
+  type        = string
+  description = "Default account ID for ELB -default is eu-west-2"
+  default     = "652711504416"
 }
