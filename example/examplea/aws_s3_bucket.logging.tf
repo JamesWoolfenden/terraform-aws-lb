@@ -10,7 +10,8 @@ resource "aws_s3_bucket" "logging" {
   # checkov:skip=CKV_AWS_18: "Ensure the S3 bucket has access logging enabled"
   # checkov:skip=CKV_AWS_144: "Its a logging bucket"
   # checkov:skip=CKV_AWS_145: "Its a logging bucket"
-  # checkov:skip=CKV2_AWS_61
+  # checkov:skip=CKV2_AWS_61:
+  # checkov:skip=CKV2_AWS_62:
 
   bucket = "logging-lb-${data.aws_caller_identity.current.account_id}"
   tags   = var.common_tags

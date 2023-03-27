@@ -38,7 +38,7 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.25.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
 
@@ -57,9 +57,11 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_access_logs"></a> [access\_logs](#input\_access\_logs) | n/a | `bool` | `true` | no |
 | <a name="input_bucket"></a> [bucket](#input\_bucket) | n/a | `any` | n/a | yes |
 | <a name="input_certificate_arn"></a> [certificate\_arn](#input\_certificate\_arn) | n/a | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
+| <a name="input_healthcheck_path"></a> [healthcheck\_path](#input\_healthcheck\_path) | n/a | `string` | `"/"` | no |
 | <a name="input_lb-name"></a> [lb-name](#input\_lb-name) | n/a | `string` | `"test-lb"` | no |
 | <a name="input_listener"></a> [listener](#input\_listener) | n/a | `map` | <pre>{<br>  "port": 443<br>}</pre> | no |
 | <a name="input_load_balancer_type"></a> [load\_balancer\_type](#input\_load\_balancer\_type) | Pick your Load balancer type | `string` | `"application"` | no |
@@ -101,25 +103,32 @@ resource "aws_iam_policy" "terraform_pike" {
                 "elasticloadbalancing:AddTags",
                 "elasticloadbalancing:CreateListener",
                 "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:CreateRule",
                 "elasticloadbalancing:CreateTargetGroup",
                 "elasticloadbalancing:DeleteListener",
                 "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DeleteRule",
                 "elasticloadbalancing:DeleteTargetGroup",
                 "elasticloadbalancing:DescribeListenerCertificates",
                 "elasticloadbalancing:DescribeListeners",
                 "elasticloadbalancing:DescribeLoadBalancerAttributes",
                 "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeRules",
                 "elasticloadbalancing:DescribeTags",
                 "elasticloadbalancing:DescribeTargetGroupAttributes",
                 "elasticloadbalancing:DescribeTargetGroups",
                 "elasticloadbalancing:ModifyListener",
                 "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:ModifyRule",
                 "elasticloadbalancing:ModifyTargetGroupAttributes",
                 "elasticloadbalancing:RemoveListenerCertificates",
                 "elasticloadbalancing:RemoveTags",
+                "elasticloadbalancing:SetRulePriorities",
                 "elasticloadbalancing:SetSecurityGroups"
             ],
-            "Resource": "*"
+            "Resource": [
+                "*"
+            ]
         }
     ]
 })
