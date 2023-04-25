@@ -1,8 +1,7 @@
+  # tfsec:ignore:aws-elb-alb-not-public
 resource "aws_lb" "examplea" {
   # checkov:skip=CKV_AWS_150: ADD REASON
   # checkov:skip=CKV2_AWS_28: simple example
-  # tfsec ios complaining about the lb being publicly exposed, this is it intended purpose.
-  # tfsec:ignore:aws-elb-alb-not-public
   name = var.lb-name
   access_logs {
     bucket  = var.bucket
