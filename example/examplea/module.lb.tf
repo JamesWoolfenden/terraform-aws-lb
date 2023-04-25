@@ -7,5 +7,5 @@ module "lb" {
   bucket          = aws_s3_bucket.logging.bucket
   vpc_id          = "vpc-00ea5eff890b0e212"
   security_groups = ["sg-06b8c96aaccf3a2a1"]
-  subnet_ids      = ["subnet-09ff91b5b0adb1fd4","subnet-05e87623a2a5c41f0"]
+  subnet_ids      = ["subnet-09ff91b5b0adb1fd4", "subnet-05e87623a2a5c41f0"]
 }
