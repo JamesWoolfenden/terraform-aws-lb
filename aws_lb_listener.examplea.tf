@@ -1,4 +1,3 @@
-
 resource "aws_lb_listener" "examplea" {
   load_balancer_arn = aws_lb.examplea.arn
   port              = var.listener["port"]

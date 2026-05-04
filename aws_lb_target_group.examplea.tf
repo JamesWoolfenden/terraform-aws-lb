@@ -9,17 +9,14 @@ resource "aws_lb_target_group" "examplea" {
     matcher = "200"
   }
 }
-
 variable "target_port" {
   type    = number
   default = 80
 }
-
 variable "healthcheck_path" {
   type    = string
   default = "/"
 }
-
 variable "target_protocol" {
   type    = string
   default = "HTTPS"

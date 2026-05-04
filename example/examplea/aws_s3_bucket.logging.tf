@@ -16,7 +16,6 @@ resource "aws_s3_bucket" "logging" {
   bucket = "logging-lb-${data.aws_caller_identity.current.account_id}"
   tags   = var.common_tags
 }
-
 resource "aws_s3_bucket_server_side_encryption_configuration" "logging" {
   bucket = aws_s3_bucket.logging.bucket
 
@@ -27,10 +26,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "logging" {
     }
   }
 }
-
-
 data "aws_caller_identity" "current" {}
-
 resource "aws_s3_bucket_policy" "examplea" {
   bucket = aws_s3_bucket.logging.id
 
@@ -75,7 +71,6 @@ resource "aws_s3_bucket_policy" "examplea" {
 }
 POLICY
 }
-
 resource "aws_s3_bucket_public_access_block" "logging" {
   bucket                  = aws_s3_bucket.logging.id
   restrict_public_buckets = true
@@ -83,8 +78,6 @@ resource "aws_s3_bucket_public_access_block" "logging" {
   block_public_policy     = true
   ignore_public_acls      = true
 }
-
-
 variable "ELB_RegionalAccount" {
   type        = string
   description = "Default account ID for ELB -default is eu-west-2"

@@ -13,8 +13,6 @@ resource "aws_lb" "examplea" {
   subnets                    = var.subnet_ids
   tags                       = var.common_tags
 }
-
-
 variable "access_logs" {
   type    = bool
   default = true
