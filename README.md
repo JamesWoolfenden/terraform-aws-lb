@@ -4,10 +4,8 @@
 [![Latest Release](https://img.shields.io/github/release/JamesWoolfenden/terraform-aws-lb.svg)](https://github.com/JamesWoolfenden/terraform-aws-lb/releases/latest)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/tag/JamesWoolfenden/terraform-aws-lb.svg?label=latest)](https://github.com/JamesWoolfenden/terraform-aws-lb/releases/latest)
 ![Terraform Version](https://img.shields.io/badge/tf-%3E%3D0.14.0-blue.svg)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/JamesWoolfenden/terraform-aws-lb/cis_aws)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-lb&benchmark=CIS+AWS+V1.2)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![checkov](https://img.shields.io/badge/checkov-verified-brightgreen)](https://www.checkov.io/)
-[![Infrastructure Tests](https://www.bridgecrew.cloud/badges/github/jameswoolfenden/terraform-aws-lb/general)](https://www.bridgecrew.cloud/link/badge?vcs=github&fullRepo=JamesWoolfenden%2Fterraform-aws-lb&benchmark=INFRASTRUCTURE+SECURITY)
 
 Terraform module.
 
@@ -37,7 +35,7 @@ No requirements.
 ## Providers
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
 
 ## Modules
@@ -47,7 +45,7 @@ No modules.
 ## Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_lb.examplea](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb) | resource |
 | [aws_lb_listener.examplea](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener) | resource |
 | [aws_lb_listener_rule.examplea](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener_rule) | resource |
@@ -56,17 +54,17 @@ No modules.
 ## Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_access_logs"></a> [access\_logs](#input\_access\_logs) | n/a | `bool` | `true` | no |
 | <a name="input_bucket"></a> [bucket](#input\_bucket) | n/a | `any` | n/a | yes |
 | <a name="input_certificate_arn"></a> [certificate\_arn](#input\_certificate\_arn) | n/a | `string` | n/a | yes |
 | <a name="input_common_tags"></a> [common\_tags](#input\_common\_tags) | This is to help you add tags to your cloud objects | `map(any)` | n/a | yes |
 | <a name="input_healthcheck_path"></a> [healthcheck\_path](#input\_healthcheck\_path) | n/a | `string` | `"/"` | no |
 | <a name="input_lb-name"></a> [lb-name](#input\_lb-name) | n/a | `string` | `"test-lb"` | no |
-| <a name="input_listener"></a> [listener](#input\_listener) | n/a | `map` | <pre>{<br>  "port": 443<br>}</pre> | no |
+| <a name="input_listener"></a> [listener](#input\_listener) | n/a | `map` | <pre>{<br/>  "port": 443<br/>}</pre> | no |
 | <a name="input_load_balancer_type"></a> [load\_balancer\_type](#input\_load\_balancer\_type) | Pick your Load balancer type | `string` | `"application"` | no |
 | <a name="input_protocol"></a> [protocol](#input\_protocol) | n/a | `string` | `"HTTPS"` | no |
-| <a name="input_rule"></a> [rule](#input\_rule) | n/a | `list` | <pre>[<br>  {<br>    "path_pattern": [<br>      "/static/*"<br>    ]<br>  },<br>  {<br>    "host_header": [<br>      "example.com"<br>    ]<br>  }<br>]</pre> | no |
+| <a name="input_rule"></a> [rule](#input\_rule) | n/a | `list` | <pre>[<br/>  {<br/>    "path_pattern": [<br/>      "/static/*"<br/>    ]<br/>  },<br/>  {<br/>    "host_header": [<br/>      "example.com"<br/>    ]<br/>  }<br/>]</pre> | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | n/a | `list(any)` | n/a | yes |
 | <a name="input_ssl_policy"></a> [ssl\_policy](#input\_ssl\_policy) | n/a | `string` | `"ELBSecurityPolicy-TLS-1-2-2017-01"` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | n/a | `list(any)` | n/a | yes |
